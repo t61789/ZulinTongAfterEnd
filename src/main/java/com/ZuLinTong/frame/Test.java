@@ -2,7 +2,6 @@ package com.ZuLinTong.frame;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -22,7 +21,7 @@ public class Test {
         try {
             String acceptjson = "";
             br = new BufferedReader(new InputStreamReader(request.getInputStream(), "utf-8"));
-            StringBuffer sb = new StringBuffer("");
+            StringBuffer sb = new StringBuffer();
             String temp;
             while ((temp = br.readLine()) != null) {
                 sb.append(temp);

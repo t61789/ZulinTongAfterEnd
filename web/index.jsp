@@ -15,15 +15,19 @@
         window.onload = function () {
             new Vue({
                 el: '#ajaxTest',
+                data:{
+                    username:"",
+                    password:""
+                },
                 methods: {
-                    send: function () {
+                    submit: function () {
                         $.ajax({
                             type: "POST",
-                            url: "test",
-                            contentType: 'application/json',
-                            data: JSON.stringify({username:"shit",password:"123"}),
+                            url: "register",
+                            data: JSON.stringify({username:this.username, password:this.password}),
+							contentType: 'application/json',
                             success: function (msg) {
-                                alert(msg.toString());
+                                alert(msg)
                             }
                         });
                     }
@@ -35,7 +39,9 @@
 
 <body>
 <div id="ajaxTest">
-    <button @click="send()"></button>
+    <input name="username" v-model="username" /><br/>
+    <input name="password" v-model="password"  /><br/>
+    <button @click="submit()"></button>
 </div>
 </body>
 </html>
