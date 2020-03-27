@@ -1,1 +1,3 @@
 mybatis的mapper dtd：http://mybatis.org/dtd/mybatis-3-mapper.dtd
+
+@RequestBody的类一定不要有构造方法

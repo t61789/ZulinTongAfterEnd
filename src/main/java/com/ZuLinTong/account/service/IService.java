@@ -6,5 +6,5 @@ public interface IService {
 
     String login(UserInfo info);
 
-    String submit(UserInfo info);
+    String register(UserInfo info);
 }

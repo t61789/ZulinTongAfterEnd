@@ -2,24 +2,16 @@ package com.ZuLinTong.account.dao;
 
 import com.ZuLinTong.account.bean.UserInfo;
 import com.ZuLinTong.frame.SqlSessionDaoSupportAbstract;
-import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public class DaoImp extends SqlSessionDaoSupportAbstract implements IDao {
 
-    public String submit(UserInfo info) {
-
-        try{
-            this.getSqlSession().insert("com.ZuLinTong.account.submit",info);
-        }catch(DuplicateKeyException e){
-            return "0";
-        }
-
-        return "1";
+    public void register(UserInfo info) {
+        this.getSqlSession().insert("com.ZuLinTong.account.submit", info);
     }
 
     public String login(UserInfo info) {
-        return null;
+        return this.getSqlSession().selectOne("com.ZuLinTong.account.login",info);
     }
 }

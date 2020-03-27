@@ -20,12 +20,23 @@
                     password:""
                 },
                 methods: {
-                    submit: function () {
+                    register: function () {
                         $.ajax({
                             type: "POST",
                             url: "register",
                             data: JSON.stringify({username:this.username, password:this.password}),
 							contentType: 'application/json',
+                            success: function (msg) {
+                                alert(msg)
+                            }
+                        });
+                    },
+                    login: function () {
+                        $.ajax({
+                            type: "POST",
+                            url: "login",
+                            data: JSON.stringify({username:this.username, password:this.password}),
+                            contentType: 'application/json',
                             success: function (msg) {
                                 alert(msg)
                             }
@@ -41,7 +52,8 @@
 <div id="ajaxTest">
     <input name="username" v-model="username" /><br/>
     <input name="password" v-model="password"  /><br/>
-    <button @click="submit()"></button>
+    <button @click="register()">register</button>
+    <button @click="login()">login</button>
 </div>
 </body>
 </html>

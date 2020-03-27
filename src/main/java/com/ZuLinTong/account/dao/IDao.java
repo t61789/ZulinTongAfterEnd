@@ -6,5 +6,5 @@ public interface IDao {
 
     String login(UserInfo info);
 
-    String submit(UserInfo info);
+    void register(UserInfo info);
 }
