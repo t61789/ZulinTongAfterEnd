@@ -2,17 +2,13 @@ package com.ZuLinTong.account.dao;
 
 import com.ZuLinTong.account.bean.UserInfo;
 import com.ZuLinTong.frame.SqlSessionDaoSupportAbstract;
-import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
-
-import java.util.List;
-import java.util.Map;
 
 @Repository
 public class DaoTest extends SqlSessionDaoSupportAbstract {
 
-    public void test(){
-        System.out.println(this.getSqlSession()==null);
+    public void test() {
+        System.out.println(this.getSqlSession() == null);
 
         UserInfo ui = new UserInfo();
         ui.setPassword("123456");
@@ -62,9 +58,9 @@ public class DaoTest extends SqlSessionDaoSupportAbstract {
 
             ui.setPassword("123456");
             ui.setUsername("s");
-            for(Object i : this.getSqlSession().selectList("com.ZuLinTong.account.selectTest1", ui)){
-                UserInfo u = (UserInfo)i ;
-                System.out.println(u.getUsername()+" "+u.getPassword());
+            for (Object i : this.getSqlSession().selectList("com.ZuLinTong.account.selectTest1", ui)) {
+                UserInfo u = (UserInfo) i;
+                System.out.println(u.getUsername() + " " + u.getPassword());
             }
 //            ui.setPassword("12345");
 //            ui.setUsername("s");

@@ -18,4 +18,7 @@ http://www.springframework.org/schema/context
         <property name="configLocation" value="classpath:mybatisConfig.xml"/>
         <property name="dataSource" ref="dataSource"/>
     </bean>
+
+    <bean id="mailSender" class="com.ZuLinTong.frame.MailSender" init-method="init"/>
+    <bean id="securityKeys" class="com.ZuLinTong.frame.SecurityKeys" init-method="init"/>
 </beans>

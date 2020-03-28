@@ -15,31 +15,57 @@
         window.onload = function () {
             new Vue({
                 el: '#ajaxTest',
-                data:{
-                    username:"",
-                    password:""
+                data: {
+                    username: "",
+                    password: "",
+                    email: "",
+                    verifycode: ""
                 },
                 methods: {
-                    register: function () {
+                    send: function (url,data) {
                         $.ajax({
                             type: "POST",
-                            url: "register",
-                            data: JSON.stringify({username:this.username, password:this.password}),
-							contentType: 'application/json',
+                            url: url,
+                            data: JSON.stringify(data),
+                            contentType: 'application/json',
                             success: function (msg) {
                                 alert(msg)
                             }
                         });
                     },
-                    login: function () {
-                        $.ajax({
-                            type: "POST",
-                            url: "login",
-                            data: JSON.stringify({username:this.username, password:this.password}),
-                            contentType: 'application/json',
-                            success: function (msg) {
-                                alert(msg)
-                            }
+                    register:function () {
+                        this.send("register",{username: this.username, password: this.password});
+                    },
+                    login:function () {
+                        this.send("login",{username: this.username, password: this.password});
+                    },
+                    test:function () {
+                        this.send("test");
+                    },
+                    bindingEmailVerify:function () {
+                        this.send("bindingEmail/verify",{
+                            username: this.username,
+                            verifycode:this.verifycode,
+                            email: this.email
+                        });
+                    },
+                    bindingEmailSend:function () {
+                        this.send("bindingEmail/send",{
+                            username: this.username,
+                            email: this.email
+                        });
+                    },
+                    retrieveEmailVerify:function () {
+                        this.send("retrievePassword/verify",{
+                            username: this.username,
+                            verifycode:this.verifycode,
+                            password:this.password
+                        });
+                    },
+                    retrieveEmailSend:function () {
+                        this.send("retrievePassword/send",{
+                            username: this.username,
+                            email: this.email
                         });
                     }
                 }
@@ -50,10 +76,17 @@
 
 <body>
 <div id="ajaxTest">
-    <input name="username" v-model="username" /><br/>
-    <input name="password" v-model="password"  /><br/>
+    username:<input name="username" v-model="username"/><br/>
+    password:<input name="password" v-model="password"/><br/>
+    email:<input name="email" v-model="email"/><br/>
+    verifycode:<input name="verifycode" v-model="verifycode"/><br/>
     <button @click="register()">register</button>
     <button @click="login()">login</button>
+    <button @click="test()">test</button>
+    <button @click="bindingEmailSend()">bindingSend</button>
+    <button @click="bindingEmailVerify()">bindingVerify</button>
+    <button @click="retrieveEmailSend()">retrieveSend</button>
+    <button @click="retrieveEmailVerify()">retrieveVerify</button>
 </div>
 </body>
 </html>

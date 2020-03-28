@@ -14,27 +14,29 @@ public class ServiceImp implements IService {
     @Resource
     private IDao daoImp;
 
+    @Override
     public String register(UserInfo info) {
 
         info.setPassword(DigestUtils.md5DigestAsHex(info.getPassword().getBytes()));
 
-        try{
+        try {
             daoImp.register(info);
-        }catch(DuplicateKeyException e){
+        } catch (DuplicateKeyException e) {
             return "0";
         }
         return "1";
     }
 
+    @Override
     public String login(UserInfo info) {
         info.setPassword(DigestUtils.md5DigestAsHex(info.getPassword().getBytes()));
 
-        try{
-            if(daoImp.login(info)==null){
+        try {
+            if (daoImp.login(info) == null) {
                 return "0";
-            }else
+            } else
                 return "1";
-        }catch(DuplicateKeyException e){
+        } catch (DuplicateKeyException e) {
             return "0";
         }
     }
