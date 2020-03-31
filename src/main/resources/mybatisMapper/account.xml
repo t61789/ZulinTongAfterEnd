@@ -3,7 +3,6 @@
         PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ZuLinTong.account">
-
     <insert id="registerAccount" parameterType="com.ZuLinTong.account.bean.UserInfo">
 		insert into account values(#{username},#{password})
 	</insert>
@@ -14,44 +13,25 @@
 		select username from account where username=#{username} and password=#{password}
 	</select>
     <select id="getEmail" parameterType="com.ZuLinTong.account.bean.UserInfo" resultType="java.lang.String">
-		select email from useremail where username=#{username}
+		select email from user_email where username=#{username}
 	</select>
     <select id="getUserByEmail" parameterType="com.ZuLinTong.account.bean.UserInfo" resultType="java.lang.String">
-		select username from useremail where email=#{email}
+		select username from user_email where email=#{email}
 	</select>
     <update id="sendVerifycode" parameterType="com.ZuLinTong.account.bean.UserInfo">
-		update useremail set verifycode=#{verifycode},time=#{time} where username=#{username}
+		update user_email set verify_code=#{verifycode},time=#{time} where username=#{username}
 	</update>
     <select id="getVerifyCodeAndTime" parameterType="com.ZuLinTong.account.bean.UserInfo"
             resultType="com.ZuLinTong.account.bean.UserInfo">
-		select verifycode,time from useremail where username=#{username}
+		select verify_code,time from user_email where username=#{username}
 	</select>
     <update id="setVerifyCodeAndTimeNull" parameterType="com.ZuLinTong.account.bean.UserInfo">
-		update useremail set verifycode=null,time=null where username=#{username}
+		update user_email set verify_code=null,time=null where username=#{username}
 	</update>
     <update id="updateEmail" parameterType="com.ZuLinTong.account.bean.UserInfo">
-		update useremail set email=#{email},verifycode=null,time=null where username=#{username}
+		update user_email set email=#{email},verify_code=null,time=null where username=#{username}
 	</update>
 	<update id="updatePassword" parameterType="com.ZuLinTong.account.bean.UserInfo">
 		update account set password=#{password} where username=#{username}
 	</update>
-
-
-	<insert id="insertTest" parameterType="com.ZuLinTong.account.bean.UserInfo">
-		insert into account values(#{username},#{password})
-	</insert>
-    <delete id="deleteTest" parameterType="com.ZuLinTong.account.bean.UserInfo">
-		delete from account where username=#{username}
-	</delete>
-    <update id="updateTest" parameterType="com.ZuLinTong.account.bean.UserInfo">
-		update account set password=#{password} where username=#{username}
-	</update>
-    <select id="selectTest" parameterType="com.ZuLinTong.account.bean.UserInfo" resultType="java.lang.String">
-		select username from account where username=#{username} and password=#{password}
-	</select>
-    <select id="selectTest1" parameterType="com.ZuLinTong.account.bean.UserInfo"
-            resultType="com.ZuLinTong.account.bean.UserInfo">
-		select * from account where password=#{password}
-	</select>
-
 </mapper>

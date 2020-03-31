@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8"/>
+</head>
+<body>
+	<div id="ajaxTest" v-cloak>
+        <p v-if="!verified" >staffKey:<input v-model="key"/><button @click="staffVerify()">staffVerify</button></p>
+        <div v-else>
+			<p>已验证<button @click="v.verified=false;">reVerify</button></p>
+			<input v-if="!uploaded" type="file" @change="updateImg()" ref="bikeImg"/>
+			<div v-else>
+				车辆ID：{{bikeId}}<br />
+				<ul>
+					<li v-for="i in typeList"><input type="radio" v-model="type" :value="i">{{i}}</li>
+				</ul>{{type}}</br>
+				描述：<input v-model="description"/>别名：<input v-model="alias"/></br>
+				<button @click="setDetail()">setDetail</button>
+			</div>
+		</div>
+	</div>
+</body>
+<script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+<script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/axios/0.18.0/axios.min.js"></script>
+<script>
+	axios.defaults.headers['Content-Type'] = 'application/json';
+	axios.defaults.headers['charset'] = 'UTF-8';
+    var v =new Vue({
+        el: '#ajaxTest',
+        data: {
+            key: "",
+            verified:false,
+			uploaded:false,
+			description:"",
+			alias:"",
+			bikeId:"",
+			type:"",
+			typeList:[]
+        },
+        methods: {
+            send: function (url, data) {
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    data: data,
+                    contentType: 'application/json',
+                    success: function (msg) {
+                        alert(msg)
+                    }
+                });
+            },
+            staffVerify: function () {
+                $.ajax({
+                    type: "POST",
+                    url: "background/staffVerify",
+                    data: this.key,
+                    contentType: 'application/json',
+                    success: (msg) => {
+                        if (msg == 1){
+                            sessionStorage.setItem("staffKey",this.key);
+                            this.verified=true;
+                        }
+                    }
+                })
+            },
+            updateImg:()=>{
+                var bikeImgForm = new FormData();
+                bikeImgForm.append("bikeImg",v.$refs.bikeImg.files[0]);
+				axios.post("background/uploadImg",bikeImgForm).then((response)=>{
+					if(response.data=="-1")
+						alert("发生未知错误，请稍等")
+					else
+						v.startSetDetail(response);
+				});
+            },
+			startSetDetail:(response)=>{
+				var r = response.data;
+				v.alias = r.alias;
+				v.bikeId = r.bikeId;
+				v.typeList = r.typeList;
+				v.uploaded = true;
+			},
+			setDetail:()=>{
+				axios.post("background/setDetail",{
+					bikeId:v.bikeId,
+					alias:v.alias,
+					description:v.description,
+					type:v.type
+				}).then((response)=>{
+					if(response.data=="0")
+						v.resetUpload();
+					else
+						alert("发生未知错误，请稍等")
+				});
+			},
+			resetUpload:()=>{
+				v.bikeId = "";
+				v.alias = "";
+				v.type = "";
+				v.description = "";
+				v.uploaded = false;
+			}
+        }
+    });
+    if(sessionStorage.getItem("staffKey"))v.verified=true;
+
+</script>
+</html>

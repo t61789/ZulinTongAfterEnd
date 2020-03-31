@@ -16,6 +16,7 @@
     <!-- 加载映射文件 -->
     <mappers>
         <!-- 通过 resource 方法一次加载一个映射文件 -->
-        <mapper resource="mybatisMapper.xml"/>
+        <mapper resource="mybatisMapper/account.xml"/>
+        <mapper resource="mybatisMapper/background.xml"/>
     </mappers>
 </configuration>

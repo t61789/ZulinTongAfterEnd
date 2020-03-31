@@ -9,7 +9,7 @@
     </properties>
 
     <groupId>com.ZuLinTong</groupId>
-    <artifactId>ZulinTongAfterEnd</artifactId>
+    <artifactId>ZuLinTongAfterEnd</artifactId>
     <version>1.0-SNAPSHOT</version>
     <dependencies>
         <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
@@ -74,6 +74,10 @@
             <artifactId>javax.mail</artifactId>
             <version>1.6.2</version>
         </dependency>
+        <dependency>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+            <version>1.3.3</version>
+        </dependency>
     </dependencies>
-
 </project>

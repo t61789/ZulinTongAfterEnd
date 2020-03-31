@@ -1,3 +1,4 @@
 jackson的依赖版本换成了2.10.3
 完成了邮箱发送bean，注册到applicationContext里
 加了个安全秘钥类
+

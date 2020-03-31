@@ -1,3 +1,12 @@
 mybatis的mapper dtd：http://mybatis.org/dtd/mybatis-3-mapper.dtd
 
 @RequestBody的类一定不要有构造方法
+
+axios的默认contentType和jquery一样
+
+乱码注意：
+    axio
+    properties
+    jackson
+    html
+    jsp
