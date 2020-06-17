@@ -1,9 +1,8 @@
-package com.ZuLinTong.frame;
+package com.zulintong.frame;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
-import org.springframework.stereotype.Controller;
 
 public abstract class BaseController implements ApplicationContextAware {
 

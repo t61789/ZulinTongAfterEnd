@@ -1,7 +1,7 @@
-package com.ZuLinTong.background.dao;
+package com.zulintong.background.dao;
 
-import com.ZuLinTong.background.bean.Bike;
-import com.ZuLinTong.frame.SqlSessionDaoSupportAbstract;
+import com.zulintong.background.bean.Bike;
+import com.zulintong.frame.SqlSessionDaoSupportAbstract;
 import org.springframework.stereotype.Repository;
 
 @Repository

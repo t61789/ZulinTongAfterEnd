@@ -2,12 +2,12 @@
 <!DOCTYPE mapper
         PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ZuLinTong.background">
-    <insert id="addBike" parameterType="com.ZuLinTong.background.bean.Bike">
+<mapper namespace="com.zulintong.background">
+    <insert id="addBike" parameterType="com.zulintong.background.bean.Bike">
         insert into bike (bike_id,alias,added_time,type,img_url)
         values(#{bikeId},#{alias},#{addedTime},#{type},#{imgUrl})
     </insert>
-    <update id="setDetail" parameterType="com.ZuLinTong.background.bean.Bike">
+    <update id="setDetail" parameterType="com.zulintong.background.bean.Bike">
         update bike set alias=#{alias},type=#{type},description=#{description} where bike_id=#{bikeId}
     </update>
 </mapper>

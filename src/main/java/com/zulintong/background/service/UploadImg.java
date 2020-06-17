@@ -1,10 +1,10 @@
-package com.ZuLinTong.background.service;
+package com.zulintong.background.service;
 
-import com.ZuLinTong.background.bean.Bike;
-import com.ZuLinTong.background.dao.BikeDao;
-import com.ZuLinTong.frame.BaseService;
-import com.ZuLinTong.frame.CommonProperties;
-import com.ZuLinTong.frame.SecurityKeys;
+import com.zulintong.background.bean.Bike;
+import com.zulintong.background.dao.BikeDao;
+import com.zulintong.frame.BaseService;
+import com.zulintong.frame.CommonProperties;
+import com.zulintong.frame.SecurityKeys;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;

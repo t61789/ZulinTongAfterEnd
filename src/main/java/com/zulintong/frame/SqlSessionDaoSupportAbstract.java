@@ -1,4 +1,4 @@
-package com.ZuLinTong.frame;
+package com.zulintong.frame;
 
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.support.SqlSessionDaoSupport;

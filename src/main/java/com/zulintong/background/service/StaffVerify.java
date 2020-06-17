@@ -1,7 +1,7 @@
-package com.ZuLinTong.background.service;
+package com.zulintong.background.service;
 
-import com.ZuLinTong.frame.BaseService;
-import com.ZuLinTong.frame.SecurityKeys;
+import com.zulintong.frame.BaseService;
+import com.zulintong.frame.SecurityKeys;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

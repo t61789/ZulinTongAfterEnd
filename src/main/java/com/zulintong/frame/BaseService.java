@@ -1,4 +1,4 @@
-package com.ZuLinTong.frame;
+package com.zulintong.frame;
 
 public abstract class BaseService {
 

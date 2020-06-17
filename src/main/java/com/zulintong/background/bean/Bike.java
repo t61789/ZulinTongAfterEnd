@@ -1,4 +1,4 @@
-package com.ZuLinTong.background.bean;
+package com.zulintong.background.bean;
 
 import java.time.LocalDateTime;
 

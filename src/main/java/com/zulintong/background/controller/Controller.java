@@ -1,11 +1,8 @@
-package com.ZuLinTong.background.controller;
+package com.zulintong.background.controller;
 
-import com.ZuLinTong.background.bean.Bike;
-import com.ZuLinTong.frame.BaseController;
-import com.ZuLinTong.frame.CommonProperties;
-import com.ZuLinTong.frame.SecurityKeys;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.zulintong.background.bean.Bike;
+import com.zulintong.frame.BaseController;
+import com.zulintong.frame.SecurityKeys;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;

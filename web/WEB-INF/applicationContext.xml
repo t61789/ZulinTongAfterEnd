@@ -19,7 +19,7 @@ http://www.springframework.org/schema/context
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
-    <bean id="mailSender" class="com.ZuLinTong.frame.MailSender" init-method="init"/>
-    <bean id="securityKeys" class="com.ZuLinTong.frame.SecurityKeys" init-method="init"/>
-    <bean id="commonProperties" class="com.ZuLinTong.frame.CommonProperties" init-method="init"/>
+    <bean id="mailSender" class="com.zulintong.frame.MailSender" init-method="init"/>
+    <bean id="securityKeys" class="com.zulintong.frame.SecurityKeys" init-method="init"/>
+    <bean id="commonProperties" class="com.zulintong.frame.CommonProperties" init-method="init"/>
 </beans>
