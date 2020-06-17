@@ -70,7 +70,7 @@
                 bikeImgForm.append("bikeImg",v.$refs.bikeImg.files[0]);
 				axios.post("background/uploadImg",bikeImgForm).then((response)=>{
 					if(response.data=="-1")
-						alert("发生未知错误，请稍等")
+						alert("发生未知错误，请稍等");
 					else
 						v.startSetDetail(response);
 				});
